@@ -1,0 +1,56 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Dependency directories
+node_modules/
+vendor/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+build/
+out/
+
+# Cache
+.cache/
+tmp/
+temp/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.env/
+
+# Java
+*.class
+target/
+
+# C/C++
+*.o
+*.exe
+
+# Package lock files (optional)
+package-lock.json
+yarn.lock
+
+# Coverage reports
+coverage/
+
+# Misc
+*.bak
+*.tmp
