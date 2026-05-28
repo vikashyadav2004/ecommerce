@@ -1,30 +1,20 @@
-const express = require("express");
-const cors = require("cors");
-const helmet = require("helmet");
-const morgan = require("morgan");
-const compression = require("compression");
-const cookieParser = require("cookie-parser");
-const authRoutes = require("./routes/auth.routes");
+require("dotenv").config();
 
-const app = express();
+const mongoose = require("mongoose");
+const app = require("./app");
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use("/api/auth", authRoutes);
-app.use(cors());
+const PORT = process.env.PORT || 5000;
 
-app.use(helmet());
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
 
-app.use(morgan("dev"));
+    console.log("MongoDB Connected");
 
-app.use(compression());
-
-app.use(cookieParser());
-app.get("/", (req, res) => {
-  res.json({
-    success: true,
-    message: "API Running Successfully",
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.log(err);
   });
-});
-
-module.exports = app;
