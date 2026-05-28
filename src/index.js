@@ -4,7 +4,7 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const compression = require("compression");
 const cookieParser = require("cookie-parser");
-const authRoutes = require("./src/routes/auth.routes");
+const authRoutes = require("./routes/auth.routes");
 
 const app = express();
 
